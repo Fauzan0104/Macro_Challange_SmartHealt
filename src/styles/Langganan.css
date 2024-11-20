@@ -1,0 +1,222 @@
+/* Kontainer Utama */
+.subscription-container {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 100%; /* Buat kontainer menyesuaikan lebar layar */
+  box-sizing: border-box;
+  color: #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  position: absolute;
+  left: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.back-button {
+  font-size: 14px;
+  color: white;
+  background-color: #12714C;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-grow: 1;
+  margin-left: 150px; /* Adjust to center properly */
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.menu-button {
+  font-size: 18px;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: #12714C;
+}
+/* Bagian Utama */
+.subscription-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Memberikan jarak antar elemen */
+  position: relative;
+}
+
+/* Kartu Langganan */
+.subscription-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+  gap: 20px; /* Jarak antar kartu */
+  border: none;
+}
+
+.subscription-plan-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.subscription-plan {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #12714C;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.subscription-plan h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.subscription-plan p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Sorotan untuk Pilihan Utama */
+.subscription-plan.highlighted {
+  background-color: #E9F7EF;
+  border: 2px solid #12714C;;
+}
+
+/* Daftar Informasi */
+.subscription-list {
+  list-style: disc inside;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 600px; /* Batasan lebar */
+  text-align: left;
+}
+.subscription-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Catatan Tambahan */
+.subscription-note {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subscribe-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #12714C;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.subscribe-button:hover {
+  background-color: #12714C;;
+}
+
+.subscription-main {
+  position: relative;
+  padding-bottom: 80px; /* Untuk memberi ruang di bawah tombol */
+}
+
+.subscription-row {
+  display: flex; /* Menggunakan Flexbox untuk mengatur elemen horizontal */
+  justify-content: space-between; /* Memberi jarak antara label dan info */
+  align-items: flex-start; /* Menjaga teks sejajar di bagian atas */
+  margin: 10px 0; /* Memberi jarak antar baris */
+}
+
+.subscription-label {
+  flex: 1; /* Bagian kiri mengambil ruang */
+  text-align: left; /* Teks di sisi kiri */
+  font-weight: bold; /* Menonjolkan label */
+  margin-right: 20px; /* Memberikan jarak antara label dan info */
+}
+
+.subscription-info {
+  flex: 2; /* Bagian kanan mengambil ruang lebih besar */
+  text-align: left; /* Teks di sisi kanan */
+  font-size: 14px; /* Ukuran teks lebih kecil untuk detail */
+}
