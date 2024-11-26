@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const PremiumFeatures = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="py-16 bg-health-accent">
+    <div className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/3 mb-8 md:mb-0">
@@ -13,13 +17,13 @@ const PremiumFeatures = () => {
           
           <div className="md:w-2/3 md:pl-12">
             <h2 className="text-3xl font-bold mb-6">
-              Beli <span className="text-health-primary">Premium</span> Dapat Akses Fitur Eksklusif
+              Beli <span className="text-primary">Premium</span> Dapat Akses Fitur Eksklusif
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-xl shadow-sm">
                 <h3 className="font-semibold mb-2">Fitur Produk</h3>
-                <p className="text-gray-600">Akses ke semua fitur premium dan konten eksklusif</p>
+                <p className="text-gray-600">Pelacak pola tidur</p>
               </div>
               
               <div className="bg-white p-6 rounded-xl shadow-sm">
@@ -29,7 +33,10 @@ const PremiumFeatures = () => {
             </div>
             
             <div className="mt-8">
-              <button className="bg-health-primary text-white px-8 py-3 rounded-full hover:bg-health-primary/90 transition-colors">
+              <button 
+                onClick={() => navigate("/subscription")}
+                className="bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
+              >
                 Segera Dapat
               </button>
               <p className="mt-4 text-gray-600">

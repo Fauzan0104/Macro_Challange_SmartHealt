@@ -45,7 +45,7 @@ const tips = [
     title: "Grafik perkembangan",
     description: "Biar tidak lupa sama timbangan berat badan kita, coba check grafik perkembangan berat badan. Apakah selama seminggu ini berat badan kita stabil?.",
     image: "public/gambar/frame 5.png",
-    path: "/progress"
+    path: "/GrafikPerkembangan"
   },
 ];
 const HealthTipsCarousel = () => {

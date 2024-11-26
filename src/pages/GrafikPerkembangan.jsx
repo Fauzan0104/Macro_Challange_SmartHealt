@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../Header";
+import Header from "./Header";
 import styles from "../styles/GrafikPerkembangan.module.css";
 import { Line } from "react-chartjs-2";
 import {
