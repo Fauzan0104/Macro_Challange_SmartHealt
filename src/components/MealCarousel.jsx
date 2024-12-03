@@ -1,65 +1,68 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import path from "path";
+
 const tips = [
   {
     id: 1,
     title: "Menu Makan Sehat",
     description: "Beragam resep makanan sehat sesuai kebutuhan kalian! Mulai dari sarapan hingga makan malam...",
     image: "public/gambar/frame 9.png",
-    path: "/healthy-menu"
+    path: "/home",
   },
   {
     id: 2,
     title: "Saran Olahraga Rutin",
     description: "Rekomendasi olahraga simple yang bisa kalian lakukan di mana saja. Tetap sehat dengan terus berolahraga..",
     image: "public/gambar/frame 8.png",
-    path: "/exercise/jogging"
-
-  
+    path: "/exercise/jogging",
   },
   {
     id: 3,
     title: "Pola Tidur Sehat",
     description: "Pentingnya tidur berkualitas dan cara mencapai tidur yang nyenyak...",
     image: "public/gambar/frame 4.png",
-    path: "/sleep-tips"
+    path: "/sleep-tracker",
   },
   {
     id: 4,
-    title: "Jadwal sehat",
+    title: "Catatan sehat",
     description: "Suka lupa untuk olahraga dan makan makanan sehat? Ayuk atur jadwal kalian agar tidak lupa untuk olahraga dan makan sehat!!",
     image: "public/gambar/frame 7.png",
-    path: "/schedule"
+    path: "/catatansehat",
   },
   {
     id: 5,
     title: "Input data kesehatan",
     description: "Kira - kira berat badan kita dengan tinggi badan kita ideal engga sih? coba check dulu yuk ~",
     image: "public/gambar/frame 6.png",
-    path: "/health-data"
+    path: "/health-input",
   },
   {
     id: 6,
     title: "Grafik perkembangan",
     description: "Biar tidak lupa sama timbangan berat badan kita, coba check grafik perkembangan berat badan. Apakah selama seminggu ini berat badan kita stabil?.",
     image: "public/gambar/frame 5.png",
-    path: "/GrafikPerkembangan"
+    path: "/health-monitor",
   },
 ];
+
 const HealthTipsCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % tips.length);
   };
+
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + tips.length) % tips.length);
   };
+
   const handleNavigate = (path) => {
     navigate(path);
   };
+
   return (
     <div className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -69,7 +72,7 @@ const HealthTipsCarousel = () => {
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           Rencana kesehatan yang baik adalah kunci untuk mencapai kualitas hidup yang lebih baik dan mencegah berbagai masalah kesehatan di masa depan.
         </p>
-        
+
         <div className="relative">
           <div className="overflow-hidden">
             <div
@@ -82,7 +85,7 @@ const HealthTipsCarousel = () => {
                     <div className="md:w-1/2 mb-6 md:mb-0">
                       <h3 className="text-2xl font-bold mb-4 text-[#0E6245]">{tip.title}</h3>
                       <p className="text-gray-600">{tip.description}</p>
-                      <button 
+                      <button
                         onClick={() => handleNavigate(tip.path)}
                         className="mt-6 px-4 py-2 bg-[#0E6245] text-white rounded-lg hover:bg-[#0E6245]/90"
                       >
@@ -93,7 +96,7 @@ const HealthTipsCarousel = () => {
                       <img
                         src={tip.image}
                         alt={tip.title}
-                        className="rounded-lg w-full h-64 object-cover"
+                        className="rounded-lg w-full h-64 object-contain"
                       />
                     </div>
                   </div>
@@ -101,14 +104,14 @@ const HealthTipsCarousel = () => {
               ))}
             </div>
           </div>
-          
+
           <button
             onClick={prevSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-50"
           >
             <ChevronLeft className="text-[#0E6245]" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow-lg hover:bg-gray-50"
@@ -116,7 +119,7 @@ const HealthTipsCarousel = () => {
             <ChevronRight className="text-[#0E6245]" />
           </button>
         </div>
-        
+
         <div className="flex justify-center mt-6 space-x-2">
           {tips.map((_, index) => (
             <button
@@ -132,4 +135,5 @@ const HealthTipsCarousel = () => {
     </div>
   );
 };
-export default HealthTipsCarousel
+
+export default HealthTipsCarousel;

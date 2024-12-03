@@ -46,7 +46,7 @@ const PaymentPage = () => {
           <div>
             <label className="block text-primary font-medium mb-2">Nomer Kartu</label>
             <div className="relative">
-              <img src="/mastercard.png" alt="Mastercard" className="absolute left-3 top-1/2 -translate-y-1/2 h-6" />
+              <img  className="absolute left-3 top-1/2 -translate-y-1/2 h-6" />
               <Input className="w-full pl-12" placeholder="******* 788 ***" />
             </div>
           </div>

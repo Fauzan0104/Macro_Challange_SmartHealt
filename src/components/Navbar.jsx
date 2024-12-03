@@ -17,7 +17,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-health-text hover:text-health-primary transition-colors">Home</a>
+            <a href="/" className="text-health-text hover:text-health-primary transition-colors">Home</a>
             {/* Dropdown Fitur */}
             <div className="relative">
               <button
@@ -28,25 +28,28 @@ const Navigation = () => {
               </button>
               {dropdownOpen && (
                 <div className="absolute mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg">
-                <a href="/fitur1" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak jam tidur</a>
-                <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak langkah</a>
-                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Resep makanan</a>
-                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Catetan kesehatan</a>
-                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Aktifitas Fisik</a>
-                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Monitor Kesehatan</a>
+                  <a href="/fitur1" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak jam tidur</a>
+                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak langkah</a>
+                  <a href="/home" className="block px-4 py-2 text-health-text hover:bg-gray-100">Resep makanan</a>
+                  <a href="/catatansehat" className="block px-4 py-2 text-health-text hover:bg-gray-100">Catetan kesehatan</a>
+                  <a href="/ExercisePage" className="block px-4 py-2 text-health-text hover:bg-gray-100">Aktifitas Fisik</a>
+                  <a href="/health-monitor" className="block px-4 py-2 text-health-text hover:bg-gray-100">Monitor Kesehatan</a>
                 </div>
               )}
             </div>
-            <a href="#" className="text-health-text hover:text-health-primary transition-colors">Artikel</a>
+            <a href="/article" className="text-health-text hover:text-health-primary transition-colors">Artikel</a>
             <a href="#" className="text-health-text hover:text-health-primary transition-colors">Pusat Bantuan</a>
           </div>
 
           {/* Login Icon */}
           <div className="hidden md:flex items-center">
-            <button className="text-health-text hover:text-health-primary flex items-center">
+            <a
+              href="/login"
+              className="text-health-text hover:text-health-primary flex items-center"
+            >
               <User size={24} className="mr-2" />
               Login
-            </button>
+            </a>
           </div>
 
           {/* Burger Menu Icon */}
@@ -59,10 +62,16 @@ const Navigation = () => {
             </button>
             {burgerOpen && (
               <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg">
-                <a href="#" className="flex items-center px-4 py-2 text-health-text hover:bg-gray-100">
+                <a
+                  href="/login"
+                  className="flex items-center px-4 py-2 text-health-text hover:bg-gray-100"
+                >
                   <User size={16} className="mr-2" /> Login
                 </a>
-                <a href="#" className="flex items-center px-4 py-2 text-health-text hover:bg-gray-100">
+                <a
+                  href="#"
+                  className="flex items-center px-4 py-2 text-health-text hover:bg-gray-100"
+                >
                   <Settings size={16} className="mr-2" /> Pengaturan
                 </a>
               </div>

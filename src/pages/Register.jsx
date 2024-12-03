@@ -1,95 +1,91 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
-const Register = () => {
-  const [showPassword, setShowPassword] = useState(false);
+const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    email: "",
     name: "",
+    email: "",
     phone: "",
     password: "",
   });
+
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.email || !formData.name || !formData.phone || !formData.password) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.password) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
         variant: "destructive",
+        title: "Error",
+        description: "Semua kolom harus diisi.",
       });
       return;
     }
-    // Handle registration logic here
     toast({
-      title: "Success",
-      description: "Registration successful!",
+      title: "Berhasil Mendaftar",
+      description: "Akun Anda berhasil dibuat. Silakan login.",
     });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    // Logic untuk melanjutkan ke halaman login
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 food-pattern">
-      <div className="auth-card">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Daftar</h2>
-          <p className="mt-2 text-gray-600">Buat akun HealthyLife Anda</p>
+    <div className="min-h-screen flex items-center justify-center bg-[url('/public/gambar/daftar.png')] bg-cover bg-center">
+      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-green-700">Daftar</h2>
+          <p className="text-sm text-gray-600">
+            Kamu sudah punya akun?{" "}
+            <Link to="/login" className="text-green-600 font-semibold hover:underline">
+              Masuk
+            </Link>
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
+              Tulis nama pengguna atau email kamu
             </label>
             <input
               id="email"
-              name="email"
               type="email"
               value={formData.email}
-              onChange={handleChange}
-              className="auth-input mt-1"
-              placeholder="Masukkan email Anda"
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+              placeholder="Nama pengguna atau email"
+              required
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Nama Kamu
               </label>
               <input
                 id="name"
-                name="name"
                 type="text"
                 value={formData.name}
-                onChange={handleChange}
-                className="auth-input mt-1"
-                placeholder="Nama lengkap"
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+                placeholder="Nama kamu"
+                required
               />
             </div>
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                Nomer Handphone
+                Nomor Handphone
               </label>
               <input
                 id="phone"
-                name="phone"
                 type="tel"
                 value={formData.phone}
-                onChange={handleChange}
-                className="auth-input mt-1"
-                placeholder="Nomor telepon"
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+                placeholder="Nomor"
+                required
               />
             </div>
           </div>
@@ -98,44 +94,27 @@ const Register = () => {
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Kata Sandi
             </label>
-            <div className="relative">
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleChange}
-                className="auth-input mt-1"
-                placeholder="Buat kata sandi"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-[60%] transform -translate-y-1/2"
-              >
-                {showPassword ? (
-                  <EyeOff className="h-5 w-5 text-gray-400" />
-                ) : (
-                  <Eye className="h-5 w-5 text-gray-400" />
-                )}
-              </button>
-            </div>
+            <input
+              id="password"
+              type="password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+              placeholder="Kata Sandi"
+              required
+            />
           </div>
 
-          <button type="submit" className="auth-button">
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-2 rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-300"
+          >
             Daftar
           </button>
         </form>
-
-        <p className="mt-4 text-center text-sm text-gray-600">
-          Kamu sudah punya akun?{" "}
-          <Link to="/login" className="auth-link">
-            Masuk
-          </Link>
-        </p>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default RegisterPage;

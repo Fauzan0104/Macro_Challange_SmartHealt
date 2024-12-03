@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
@@ -9,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!email || !password) {
       toast({
@@ -19,7 +20,6 @@ const Login = () => {
       });
       return;
     }
-   
     toast({
       title: "Success",
       description: "Login successful!",
@@ -27,13 +27,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 food-pattern">
-      <div className="auth-card">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Selamat datang di <span className="text-primary">HealthyLife</span>
+    <div className="min-h-screen flex justify-center items-center bg-[url('/public/gambar/daftar.png')] bg-cover bg-center">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-800">
+            Selamat datang di <span className="text-green-600">HealthyLife</span>
           </h2>
-          <p className="mt-2 text-gray-600">Masuk ke akun Anda</p>
+          <p className="text-lg font-semibold text-green-700">Masuk</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -46,8 +46,8 @@ const Login = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="auth-input mt-1"
-              placeholder="Masukkan email Anda"
+              className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+              placeholder="Nama pengguna atau email"
             />
           </div>
 
@@ -61,36 +61,35 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="auth-input mt-1"
-                placeholder="Masukkan kata sandi"
+                className="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring focus:ring-green-300"
+                placeholder="Kata Sandi"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-[60%] transform -translate-y-1/2"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
               >
-                {showPassword ? (
-                  <EyeOff className="h-5 w-5 text-gray-400" />
-                ) : (
-                  <Eye className="h-5 w-5 text-gray-400" />
-                )}
+                {showPassword ? <EyeOff /> : <Eye />}
               </button>
             </div>
-            <div className="flex justify-end mt-2">
-              <Link to="/forgot-password" className="auth-link text-sm">
+            <div className="text-right mt-2">
+              <Link to="/forgot-password" className="text-sm text-red-600 hover:underline">
                 Lupa kata sandi?
               </Link>
             </div>
           </div>
 
-          <button type="submit" className="auth-button">
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-2 rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-300"
+          >
             Masuk
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
           buat akun?{" "}
-          <Link to="/register" className="auth-link">
+          <Link to="/register" className="text-green-600 font-semibold hover:underline">
             Daftar
           </Link>
         </p>
