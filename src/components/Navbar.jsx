@@ -28,8 +28,8 @@ const Navigation = () => {
               </button>
               {dropdownOpen && (
                 <div className="absolute mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg">
-                  <a href="/fitur1" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak jam tidur</a>
-                  <a href="#" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak langkah</a>
+                  <a href="/sleep-tracker" className="block px-4 py-2 text-health-text hover:bg-gray-100">Pelacak jam tidur</a>
+                 
                   <a href="/home" className="block px-4 py-2 text-health-text hover:bg-gray-100">Resep makanan</a>
                   <a href="/catatansehat" className="block px-4 py-2 text-health-text hover:bg-gray-100">Catetan kesehatan</a>
                   <a href="/ExercisePage" className="block px-4 py-2 text-health-text hover:bg-gray-100">Aktifitas Fisik</a>
@@ -37,8 +37,8 @@ const Navigation = () => {
                 </div>
               )}
             </div>
-            <a href="/article" className="text-health-text hover:text-health-primary transition-colors">Artikel</a>
-            <a href="#" className="text-health-text hover:text-health-primary transition-colors">Pusat Bantuan</a>
+            <a href="/article/1/" className="text-health-text hover:text-health-primary transition-colors">Artikel</a>
+            <a href="/" className="text-health-text hover:text-health-primary transition-colors">Pusat Bantuan</a>
           </div>
 
           {/* Login Icon */}
